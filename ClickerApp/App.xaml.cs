@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Database;
+
 
 namespace ClickerApp
 {
@@ -15,6 +17,8 @@ namespace ClickerApp
 
         protected override void OnStart()
         {
+            // var forfatterErRis = new MongoDB();
+            //Database.MongoDB.MongoDBConnect();
         }
 
         protected override void OnSleep()

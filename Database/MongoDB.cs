@@ -1,24 +1,30 @@
 ﻿using System;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Collections.Generic;
+
 
 
 namespace Database
 {
     public class MongoDB
     {
-        MongoClient cnn = new MongoClient("mongodb+srv://Kenned:Password123@cluster0.dg6zy.mongodb.net/Cluster0?authSource=admin&retryWrites=true&w=majority");
+        static MongoClient cnn = new MongoClient("mongodb+srv://Kenned:Password123@cluster0.dg6zy.mongodb.net/mpc?authSource=admin&retryWrites=true&w=majority");
 
-        public MongoClient MongoDBConnect()
+        public static MongoClient MongoDBConnect()
         {
-            //var client = new MongoClient("mongodb+srv://Kenned:password123@cluster0.dg6zy.mongodb.net/mpc?authSource=admin&retryWrites=true&w=majority");
+            var client = new MongoClient("mongodb+srv://Kenned:password123@cluster0.dg6zy.mongodb.net/mpc?authSource=admin&retryWrites=true&w=majority");
             var database = cnn.GetDatabase("mpc");
+
+            var collection = database.GetCollection<BsonDocument>("Users");
+            var data = collection.Find(new BsonDocument()).FirstOrDefault();
+            Console.WriteLine(data);
 
             return cnn;
         }
     }
 
-    public User Login(string email, string password)
+    /*public User Login(string email, string password)
     {
       //  User user = new User();
     //  Nyt user objekt
@@ -29,7 +35,7 @@ namespace Database
         var data = collection.Find(filterEmail & filterPassword).FirstOrDefault();
 
         return user;
-    }
+    }*/
 
 
 
