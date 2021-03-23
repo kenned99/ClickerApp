@@ -14,7 +14,8 @@ namespace ClickerApp
         double income;
         double clickPower;
 
-        Building katana = new Building() {
+        Building katana = new Building()
+        {
             amount = 0,
             cost = 15,
             value = 0.1,
@@ -47,14 +48,13 @@ namespace ClickerApp
         {
             InitializeComponent();
         }
-
         void Building(int upgrade)
         {
             switch (upgrade)
             {
                 case 1:
                     double cost1 = 15 * Math.Pow(1.15, katana.amount);
-                    if ( karma >= cost1)
+                    if (karma >= cost1)
                     {
                         karma -= cost1;
                         katana.amount += 1;
@@ -138,6 +138,19 @@ namespace ClickerApp
             clickPower = 1 + (income * 0.1 * katana.upgrades);
 
             karma += clickPower;
+        }
+
+        int point = 0;
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            point++;
+            youPoints.Text = point.ToString();
+
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
