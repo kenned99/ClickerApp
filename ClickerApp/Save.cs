@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClickerApp
 {
-    class Save
+    public class Save
     {
         public string Username { get; set; }
         public Building katana { get; set; }
