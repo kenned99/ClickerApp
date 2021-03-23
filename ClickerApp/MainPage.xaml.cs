@@ -13,6 +13,7 @@ namespace ClickerApp
         double karma;
         double income;
         double clickPower;
+        int totalClicks;
 
         Building katana = new Building()
         {
@@ -133,19 +134,14 @@ namespace ClickerApp
             karma += income;
         }
 
-        void Click()
+        void Click(object sender, EventArgs e)
         {
             clickPower = 1 + (income * 0.1 * katana.upgrades);
 
             karma += clickPower;
-        }
-
-        int point = 0;
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            point++;
-            youPoints.Text = point.ToString();
-
+            totalClicks++;
+            youPoints.Text = karma.ToString();
+            youClicks.Text = totalClicks.ToString();
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)

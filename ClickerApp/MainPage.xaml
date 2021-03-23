@@ -5,12 +5,53 @@
              Title="Click">
 
     <StackLayout>
-        <Button FontSize="36"  FontAttributes="Bold" BackgroundColor="Black" TextColor="White" WidthRequest="260" HeightRequest="260" CornerRadius="220" Clicked="Button_Clicked" VerticalOptions="Center" HorizontalOptions="Center" Text="Click me"/>
-        <Label FontSize="36" Text="Points" HorizontalOptions="Center"/>
-        <Label x:Name="youPoints" FontSize="20" Text="0" HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        
+            <Button FontSize="36"
+                    FontAttributes="Bold" 
+                    BackgroundColor="Orange" 
+                    TextColor="White" 
+                    WidthRequest="260" 
+                    HeightRequest="260" 
+                    CornerRadius="220" 
+                    Clicked="Click" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" 
+                    Text="Shitpost"
+                    Grid.Row="0"
+                    Margin="40"/>
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <Label FontSize="18" Text="Clicks" Grid.Row="0" Grid.Column="0" Margin="60,0,0,0"/>
+                <Label x:Name="youClicks" FontSize="34" Text="400m" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Margin="40,0,0,0"/>
+                
+                <Label FontSize="25" Text="Karma" Grid.Row="0" Grid.Column="1" Margin="33,0,0,0"/>
+                <Label x:Name="youPoints" FontSize="45" Text="1000" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+                <Label FontSize="18" Text="Income" Grid.Row="0" Grid.Column="2" Margin="15,0,0,0"/>
+                <Label x:Name="something" FontSize="34" Text="400m" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0"/>
+
+
+
+            </Grid>
+        </Grid>
+        
         <StackLayout>
-            <Button Text="Shop" Clicked="Button_Clicked_1"></Button>
+            <Button Text="Shop" HeightRequest="80" Clicked="Button_Clicked_1" Margin="100,20,100,0"></Button>
         </StackLayout>
     </StackLayout>
 
