@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace ClickerApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Shop : ContentView
+    public partial class Shop : ContentPage
     {
         public Shop()
         {
