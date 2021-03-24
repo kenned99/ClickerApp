@@ -23,7 +23,7 @@
                                     <Label FontSize="20" Text="{Binding amount}"/>
                                 </StackLayout>
                                 <StackLayout HorizontalOptions="End" VerticalOptions="Center" Padding="5" Grid.Column="2">
-                                <Button FontSize="28" FontAttributes="Bold"  Text="+" WidthRequest="60" HeightRequest="60" Margin="0,0,10,0" CornerRadius="40" Clicked="Button_Clicked" x:Name="Buy"/>
+                                <Button FontSize="28" FontAttributes="Bold"  Text="+" WidthRequest="60" HeightRequest="60" Margin="0,0,10,0" CornerRadius="40" Clicked="Button_Clicked"/>
                             </StackLayout>
                         </Grid>
                     </ViewCell>
