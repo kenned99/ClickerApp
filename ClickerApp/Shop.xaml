@@ -17,7 +17,7 @@
                             </Grid.ColumnDefinitions>
                                 <StackLayout VerticalOptions="FillAndExpand" Padding="5" Grid.Column="0">
                                     <Label FontSize="25" FontAttributes="Bold" Text="{Binding name}"/>
-                                    <Label FontSize="20" Text="{Binding price}"/>
+                                    <Label FontSize="20" Text="{Binding cost}"/>
                                 </StackLayout>
                                 <StackLayout HorizontalOptions="End" VerticalOptions="Center" Padding="5" Grid.Column="1">
                                     <Label FontSize="20" Text="{Binding amount}"/>
