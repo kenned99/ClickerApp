@@ -16,12 +16,19 @@ namespace ClickerApp
         public Shop()
         {
             InitializeComponent();
+            ScrollView scrollView = new ScrollView();
+            scrollView.Scrolled += ScrollView_Scrolled;
             ShopListView.ItemsSource = itemlist.Items;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            
+        }
 
+        private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
+        {
+            Console.WriteLine($"ScrollX: {e.ScrollX}, ScrollY: {e.ScrollY}");
         }
     }
     public static class itemlist{
@@ -33,22 +40,26 @@ namespace ClickerApp
                 new Item
                 {
                     name = "Katana",
-                    price = 10
+                    price = 10,
+                    amount = 0
                 },
                 new Item
                 {
-                    name = "fedora",
-                    price = 100
+                    name = "Fedora",
+                    price = 100,
+                    amount = 0
                 },
                 new Item
                 {
-                    name = "waifu",
-                    price = 1000
+                    name = "Waifu",
+                    price = 1000,
+                    amount = 0
                 },
                 new Item
                 {
-                    name = "bodypillow",
-                    price = 5000
+                    name = "Bodypillow",
+                    price = 5000,
+                    amount = 0
                 },
             };
         }
@@ -57,5 +68,6 @@ namespace ClickerApp
     {
         public string name { get; set; }
         public int price { get; set; }
+        public int amount { get; set; }
     }
 }
