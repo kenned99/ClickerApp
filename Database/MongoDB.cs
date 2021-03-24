@@ -16,7 +16,10 @@ namespace Database
         {
             var client = new MongoClient("mongodb+srv://Kenned:password123@cluster0.dg6zy.mongodb.net/mpc?authSource=admin&retryWrites=true&w=majority");
             var database = cnn.GetDatabase("mpc");
-
+            if(database != null)
+            {
+                Console.WriteLine("Successfull connection");
+            }
             var collection = database.GetCollection<BsonDocument>("Users");
             var data = collection.Find(new BsonDocument()).FirstOrDefault();
             Console.WriteLine(data);
