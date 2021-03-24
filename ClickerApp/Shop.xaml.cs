@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +12,7 @@ namespace ClickerApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Shop : ContentPage
     {
-        MainPage mp = new MainPage();
+        MainPage main = new MainPage();
         public Shop()
         {
             InitializeComponent();
@@ -22,53 +21,93 @@ namespace ClickerApp
             ShopListView.ItemsSource = itemlist.Items;
         }
         
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
         {
             Console.WriteLine($"ScrollX: {e.ScrollX}, ScrollY: {e.ScrollY}");
         }
-    }
-    public static class itemlist{
-        public static IList<Item> Items { get; set; }
-    static itemlist()
+
+        private void Add(object sender, EventArgs e)
         {
-            Items = new ObservableCollection<Item>()
+
+
+        }
+
+
+        /* Do not work becuase the Listview need the name.
+          List<Building> bList = new List<Building>();
+
+         private List<Building> BuildingList()
+         {
+             bList.Add(main.katana);
+             bList.Add(main.fedora);
+             bList.Add(main.waifu);
+             bList.Add(main.bodypillow);
+             return bList;
+         }*/
+    }
+
+
+    public static class itemlist
+        {
+            public static IList<item> Items { get; set; }
+            static itemlist()
             {
-                new Item
-                {
+                MainPage page = new MainPage();
+                Items = new ObservableCollection<item>()
+            {
+             new item{
                     name = "Katana",
-                    price = 10,
-                    amount = 0
+                    cost = page.katana.cost,
+                    amount = page.katana.amount
                 },
-                new Item
-                {
+             new item{
+                    name = "Katana Upgrade",
+                    cost = page.katana.cost,
+                    amount = page.katana.upgrades
+                },
+             new item{
                     name = "Fedora",
-                    price = 100,
-                    amount = 0
+                    cost = page.fedora.cost,
+                    amount = page.fedora.amount
                 },
-                new Item
-                {
+             new item{
+                    name = "Fedora Upgrade",
+                    cost = page.fedora.cost,
+                    amount = page.fedora.upgrades
+                },
+             new item{
                     name = "Waifu",
-                    price = 1000,
-                    amount = 0
+                    cost = page.waifu.cost,
+                    amount = page.waifu.amount
                 },
-                new Item
-                {
+             new item{
+                    name = "Waifu Upgrade",
+                    cost = page.waifu.cost,
+                    amount = page.waifu.upgrades
+                },
+             new item{
                     name = "Bodypillow",
-                    price = 5000,
-                    amount = 0
+                    cost = page.bodypillow.cost,
+                    amount = page.bodypillow.amount
+                },
+             new item{
+                    name = "Bodypillow Upgrade",
+                    cost = page.waifu.cost,
+                    amount = page.waifu.upgrades
                 },
             };
+
+            }
         }
+
+        public class item
+        {
+            public string name { get; set; }
+            public double cost { get; set; }
+            public double amount { get; set; }
     }
-    public class Item
-    {
-        public string name { get; set; }
-        public int price { get; set; }
-        public int amount { get; set; }
+
     }
-}
+   

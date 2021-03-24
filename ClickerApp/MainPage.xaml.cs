@@ -15,14 +15,14 @@ namespace ClickerApp
         double clickPower;
         int totalClicks;
 
-        public Building katana = new Building()
+       public Building katana = new Building()
         {
             amount = 0,
             cost = 15,
             value = 0.1,
             upgrades = 0
         };
-        public Building fedora = new Building()
+      public Building fedora = new Building()
         {
             amount = 0,
             cost = 100,
@@ -30,7 +30,7 @@ namespace ClickerApp
             upgrades = 0
         };
 
-        public Building waifu = new Building()
+      public Building waifu = new Building()
         {
             amount = 0,
             cost = 1100,
@@ -38,7 +38,7 @@ namespace ClickerApp
             upgrades = 0
         };
 
-        public Building bodypillow = new Building()
+       public Building bodypillow = new Building()
         {
             amount = 0,
             cost = 12000,
@@ -49,7 +49,7 @@ namespace ClickerApp
         {
             InitializeComponent();
         }
-        void Building(int upgrade)
+       public void Building(int upgrade)
         {
             switch (upgrade)
             {
@@ -91,7 +91,7 @@ namespace ClickerApp
             }
         }
 
-        void Upgrade(int upgrade)
+       public void Upgrade(int upgrade)
         {
             switch (upgrade)
             {
