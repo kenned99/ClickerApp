@@ -13,6 +13,7 @@ namespace ClickerApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Shop : ContentPage
     {
+        MainPage mp = new MainPage();
         public Shop()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace ClickerApp
             scrollView.Scrolled += ScrollView_Scrolled;
             ShopListView.ItemsSource = itemlist.Items;
         }
-
+        
         private void Button_Clicked(object sender, EventArgs e)
         {
             

@@ -15,14 +15,14 @@ namespace ClickerApp
         double clickPower;
         int totalClicks;
 
-        Building katana = new Building()
+        public Building katana = new Building()
         {
             amount = 0,
             cost = 15,
             value = 0.1,
             upgrades = 0
         };
-        Building fedora = new Building()
+        public Building fedora = new Building()
         {
             amount = 0,
             cost = 100,
@@ -30,7 +30,7 @@ namespace ClickerApp
             upgrades = 0
         };
 
-        Building waifu = new Building()
+        public Building waifu = new Building()
         {
             amount = 0,
             cost = 1100,
@@ -38,7 +38,7 @@ namespace ClickerApp
             upgrades = 0
         };
 
-        Building bodypillow = new Building()
+        public Building bodypillow = new Building()
         {
             amount = 0,
             cost = 12000,
