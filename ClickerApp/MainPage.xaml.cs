@@ -71,7 +71,7 @@ namespace ClickerApp
         async void YourUser()
         {
 
-            string answer = await DisplayPromptAsync("Username", "What your username", placeholder: "Username");
+            string answer = await DisplayPromptAsync("Username", "What your username", placeholder: "Username", cancel: "");
              Debug.WriteLine("Answer: " + answer);
             YourUsername.Title = answer;
             username = answer;
