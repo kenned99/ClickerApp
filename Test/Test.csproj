@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClickerApp.Android\ClickerApp.Android.csproj" />
     <ProjectReference Include="..\ClickerApp\ClickerApp.csproj" />
     <ProjectReference Include="..\Database\Database.csproj" />
   </ItemGroup>
