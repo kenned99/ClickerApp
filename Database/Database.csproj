@@ -2,11 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>b2400b9b-b0d1-4c91-9357-3d63b66f90bb</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Bson" Version="2.12.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
 </Project>

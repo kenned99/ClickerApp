@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 using System.Threading;
 using Xamarin.Forms;
 using Database;
+using Model;
 
 
 namespace ClickerApp
 {
     public partial class MainPage : ContentPage
     {
+        Database.MongoDB mdb = new Database.MongoDB();
+        Save save = new Save();
+
         private string username;
         double karma;
         double income;
@@ -61,9 +65,27 @@ namespace ClickerApp
         };
         public MainPage()
         {
+            
             InitializeComponent();
             YourUser();
             Timer timer = new Timer(Tick, null, 0, 1000);
+            Timer saveTimer = new Timer(QuickSaveTimerExecuter, null, 0, 60000);
+        }
+
+        public void QuickSaveTimerExecuter(object state)
+        {
+            QuickSave(save);
+            mdb.AddSave(save);
+        }
+
+        public void QuickSave(Save save)
+        {
+            save.Username = username;
+            save.Karma = karma;
+            save.katana = katana;
+            save.fedora = fedora;
+            save.waifu = waifu;
+            save.bodypillow = bodypillow;
         }
 
         public bool Check(string username)

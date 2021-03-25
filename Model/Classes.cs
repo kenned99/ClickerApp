@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ClickerApp
+namespace Model
 {
     public class Save
     {
@@ -12,5 +10,14 @@ namespace ClickerApp
         public Building fedora { get; set; }
         public Building waifu { get; set; }
         public Building bodypillow { get; set; }
+    }
+    public class Building
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public double amount { get; set; }
+        public double cost { get; set; }
+        public double value { get; set; }
+        public double upgrades { get; set; }
     }
 }
