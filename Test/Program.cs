@@ -9,6 +9,9 @@ namespace Test
         static void Main(string[] args)
         {
             Database.MongoDB.MongoDBConnect();
+
+            
+
         }
     }
 }
