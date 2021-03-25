@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,13 @@ namespace ClickerApp
 {
     public partial class MainPage : ContentPage
     {
+        private string username;
         double karma;
         double income;
         double clickPower;
         int totalClicks;
+
+
 
        public Building katana = new Building()
         {
@@ -48,8 +52,33 @@ namespace ClickerApp
         public MainPage()
         {
             InitializeComponent();
+            YourUser();
         }
-       public void Building(int upgrade)
+
+        public bool Check(string username)
+        {
+            if(username == null || username == "")
+            {
+                YourUser();
+                return false;                
+            }
+            else
+            {
+                return true;
+            }  
+        }
+
+        async void YourUser()
+        {
+
+            string answer = await DisplayPromptAsync("Username", "What your username", placeholder: "Username", cancel: "");
+             Debug.WriteLine("Answer: " + answer);
+            YourUsername.Title = answer;
+            username = answer;
+            Check(answer);
+        }
+
+        public void Building(int upgrade)
         {
             switch (upgrade)
             {
@@ -147,6 +176,11 @@ namespace ClickerApp
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Shop());
+        }
+
+        private void Username(object sender, EventArgs e)
+        {
+            YourUser();
         }
     }
 }
