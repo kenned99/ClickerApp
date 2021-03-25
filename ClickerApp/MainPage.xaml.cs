@@ -63,6 +63,7 @@ namespace ClickerApp
         {
             InitializeComponent();
             YourUser();
+            Timer timer = new Timer(Tick, null, 0, 1000);
         }
 
         public bool Check(string username)
@@ -88,9 +89,8 @@ namespace ClickerApp
             Check(answer);
         }
 
-        public void Building(int upgrade)
-            Timer timer = new Timer(Tick, null, 0, 1000);
-        }
+            
+        
         public void Building(int upgrade)
         {
             
