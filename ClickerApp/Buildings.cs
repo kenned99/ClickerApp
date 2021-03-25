@@ -6,6 +6,8 @@ namespace ClickerApp
 {
     public class Building
     {
+        public int id { get; set; }
+        public string name { get; set; }
         public double amount { get; set; }
         public double cost { get; set; }
         public double value { get; set; }

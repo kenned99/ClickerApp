@@ -18,7 +18,7 @@ namespace ClickerApp
             InitializeComponent();
             ScrollView scrollView = new ScrollView();
             scrollView.Scrolled += ScrollView_Scrolled;
-            ShopListView.ItemsSource = itemlist.Items;
+            ShopListView.ItemsSource = BuildingList();
         }
         
 
@@ -30,25 +30,36 @@ namespace ClickerApp
 
         private void Add(object sender, EventArgs e)
         {
-
-
+            
         }
 
+        void JustBuyAHouse(object sender, EventArgs e)
+        {
+            int tempID = 0;
+            foreach (var item in bList)
+            {
+                if (Int32.Parse(sender.ToString()) == item.id)
+                {
+                    tempID = item.id;
+                    break;
+                }
+            }
+            main.Building(tempID);
+        }
 
-        /* Do not work becuase the Listview need the name.
-          List<Building> bList = new List<Building>();
-
-         private List<Building> BuildingList()
-         {
-             bList.Add(main.katana);
-             bList.Add(main.fedora);
-             bList.Add(main.waifu);
-             bList.Add(main.bodypillow);
-             return bList;
-         }*/
+         List<Building> bList = new List<Building>();
+        private List<Building> BuildingList()
+        {
+            bList.Add(main.katana);
+            bList.Add(main.fedora);
+            bList.Add(main.waifu);
+            bList.Add(main.bodypillow);
+            return bList;
+        }
+         
     }
 
-
+    /*
     public static class itemlist
         {
             public static IList<item> Items { get; set; }
@@ -57,42 +68,42 @@ namespace ClickerApp
                 MainPage page = new MainPage();
                 Items = new ObservableCollection<item>()
             {
-             new item{
+                new item{
                     name = "Katana",
                     cost = page.katana.cost,
                     amount = page.katana.amount
                 },
-             new item{
+                new item{
                     name = "Katana Upgrade",
-                    cost = page.katana.cost,
+                    cost = page.katana.cost * 10 * Math.Pow(10, page.katana.upgrades),
                     amount = page.katana.upgrades
                 },
-             new item{
+                new item{
                     name = "Fedora",
                     cost = page.fedora.cost,
                     amount = page.fedora.amount
                 },
-             new item{
+                new item{
                     name = "Fedora Upgrade",
                     cost = page.fedora.cost,
                     amount = page.fedora.upgrades
                 },
-             new item{
+                new item{
                     name = "Waifu",
                     cost = page.waifu.cost,
                     amount = page.waifu.amount
                 },
-             new item{
+                new item{
                     name = "Waifu Upgrade",
                     cost = page.waifu.cost,
                     amount = page.waifu.upgrades
                 },
-             new item{
+                new item{
                     name = "Bodypillow",
                     cost = page.bodypillow.cost,
                     amount = page.bodypillow.amount
                 },
-             new item{
+                new item{
                     name = "Bodypillow Upgrade",
                     cost = page.waifu.cost,
                     amount = page.waifu.upgrades
@@ -108,6 +119,6 @@ namespace ClickerApp
             public double cost { get; set; }
             public double amount { get; set; }
     }
-
-    }
+    */
+}
    

@@ -37,13 +37,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Label FontSize="18" Text="Clicks" Grid.Row="0" Grid.Column="0" Margin="60,0,0,0"/>
-                <Label x:Name="youClicks" FontSize="34" Text="400m" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Margin="40,0,0,0"/>
+                <Label x:Name="youClicks" FontSize="34" Text="0" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Margin="40,0,0,0"/>
                 
                 <Label FontSize="25" Text="Karma" Grid.Row="0" Grid.Column="1" Margin="33,0,0,0"/>
-                <Label x:Name="youPoints" FontSize="45" Text="1000" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+                <Label x:Name="youPoints" FontSize="45" Text="0" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
 
                 <Label FontSize="18" Text="Income" Grid.Row="0" Grid.Column="2" Margin="15,0,0,0"/>
-                <Label x:Name="something" FontSize="34" Text="400m" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0"/>
+                <Label x:Name="youIncome" FontSize="34" Text="0" TextColor="Orange" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0"/>
 
 
 

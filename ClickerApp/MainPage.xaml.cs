@@ -4,7 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using Xamarin.Forms;
+using Database;
+
 
 namespace ClickerApp
 {
@@ -15,42 +18,53 @@ namespace ClickerApp
         double clickPower;
         int totalClicks;
 
-       public Building katana = new Building()
+
+        public Building katana = new Building()
         {
+            id = 1,
+            name = "Katana",
             amount = 0,
             cost = 15,
-            value = 0.1,
-            upgrades = 0
+            value = 0.05,
+            upgrades = 1
         };
-      public Building fedora = new Building()
+        public Building fedora = new Building()
         {
+            id = 2,
+            name = "Fedora",
             amount = 0,
             cost = 100,
-            value = 1,
-            upgrades = 0
+            value = 0.5,
+            upgrades = 1
         };
 
-      public Building waifu = new Building()
+        public Building waifu = new Building()
         {
-            amount = 0,
+            id = 3,
+            name = "Waifu",
+            amount = 3,
             cost = 1100,
-            value = 8,
-            upgrades = 0
+            value = 4,
+            upgrades = 1
         };
 
-       public Building bodypillow = new Building()
+        public Building bodypillow = new Building()
         {
+            id = 4,
+            name = "Bodypillow",
             amount = 0,
             cost = 12000,
-            value = 47,
-            upgrades = 0
+            value = 24,
+            upgrades = 1
         };
         public MainPage()
         {
             InitializeComponent();
+            Timer timer = new Timer(Tick, null, 0, 1000);
         }
-       public void Building(int upgrade)
+        public void Building(int upgrade)
         {
+            
             switch (upgrade)
             {
                 case 1:
@@ -91,33 +105,33 @@ namespace ClickerApp
             }
         }
 
-       public void Upgrade(int upgrade)
+        public void Upgrade(int upgrade)
         {
             switch (upgrade)
             {
                 case 1:
-                    if (karma > katana.cost * 10 * Math.Pow(10, katana.upgrades))
+                    if (karma > katana.cost * 10 * Math.Pow(10, katana.upgrades -1))
                     {
                         katana.upgrades += 1;
                     }
                     break;
 
                 case 2:
-                    if (karma > fedora.cost * 10 * Math.Pow(10, fedora.upgrades))
+                    if (karma > fedora.cost * 10 * Math.Pow(10, fedora.upgrades -1))
                     {
                         fedora.upgrades += 1;
                     }
                     break;
 
                 case 3:
-                    if (karma > waifu.cost * 10 * Math.Pow(10, waifu.upgrades))
+                    if (karma > waifu.cost * 10 * Math.Pow(10, waifu.upgrades -1))
                     {
                         waifu.upgrades += 1;
                     }
                     break;
 
                 case 4:
-                    if (karma > bodypillow.cost * 10 * Math.Pow(10, bodypillow.upgrades))
+                    if (karma > bodypillow.cost * 10 * Math.Pow(10, bodypillow.upgrades -1))
                     {
                         bodypillow.upgrades += 1;
                     }
@@ -125,22 +139,32 @@ namespace ClickerApp
             }
         }
 
-        void Tick()
+        void Tick(object o)
         {
+            Console.WriteLine("Income attempt");
             income = (katana.amount * katana.value * katana.upgrades * 2)
                    + (fedora.amount * fedora.value * fedora.upgrades * 2)
                    + (waifu.amount * waifu.value * waifu.upgrades * 2)
                    + (bodypillow.amount * bodypillow.value * bodypillow.upgrades * 2);
             karma += income;
-        }
 
+            Device.BeginInvokeOnMainThread(() => {
+                int LL = (int)Math.Round(karma);
+                int LL2 = (int)Math.Round(income);
+                youPoints.Text = LL.ToString();
+                youIncome.Text = LL2.ToString();
+
+            });
+            
+        }
         void Click(object sender, EventArgs e)
         {
             clickPower = 1 + (income * 0.1 * katana.upgrades);
 
             karma += clickPower;
             totalClicks++;
-            youPoints.Text = karma.ToString();
+            int LL = (int)Math.Round(karma);
+            youPoints.Text = LL.ToString();
             youClicks.Text = totalClicks.ToString();
         }
 
